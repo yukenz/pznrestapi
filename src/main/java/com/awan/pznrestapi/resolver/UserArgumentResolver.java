@@ -34,7 +34,7 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
             ModelAndViewContainer mavContainer,
             NativeWebRequest webRequest,
             WebDataBinderFactory binderFactory
-    ) throws Exception {
+    ){
 
         //Get HttpServletRequest and Token
         HttpServletRequest request = (HttpServletRequest) webRequest.getNativeRequest();

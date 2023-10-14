@@ -40,7 +40,7 @@ public class Contact {
     @JoinColumn(name = "user", referencedColumnName = "username")
     private User user;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "contact")
+    @OneToMany(mappedBy = "contact")
     List<Address> addresses;
 
 }

@@ -1,23 +1,24 @@
-package com.awan.pznrestapi.entity;
+package com.awan.pznrestapi.model;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity
-@Table(name = "addresses")
-public class Address {
+public class CreateAddressRequest {
 
-    @Id
-    @Size(max = 100)
-    private String id;
+
+    @JsonIgnore //SetManual
+    @NotBlank
+    private String idContact;
 
     @Size(max = 200)
     private String street;
@@ -31,14 +32,7 @@ public class Address {
     @Size(max = 100)
     private String country;
 
-
-    @Column(name = "postal_code")
+    @Size(max = 100)
     private String postalCode;
-
-    /*Non-Primitive*/
-    @ManyToOne()
-    @JoinColumn(name = "contact", referencedColumnName = "id")
-    private Contact contact;
-
 
 }
